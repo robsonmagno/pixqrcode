@@ -7,7 +7,10 @@ require __DIR__.'/vendor/autoload.php';
 use Mpdf\QrCode\Output;
 use Mpdf\QrCode\QrCode;
 use Rmagnoprado\Pixqrcode\Payload;
+?>
 
+<h1>RObson</h1>
+<?php
 $px[00] = '01';
 $px[26][00] = 'BR.GOV.BCB.PIX';
 //Indica arranjo específico; “00” (GUI) obrigatório e valor fixo: br.gov.bcb.pix
