@@ -1,0 +1,43 @@
+{
+    "name": "rmagnoprado/pixqrcode",
+    "description": "Qr Code para transferência PIX",
+    "type": "library",
+    "require": {
+        "rmagnoprado/debug": ">=1.0.0",
+        "mpdf/qrcode": ">=1.2.0"
+    },
+    "require-dev": {
+        "rmagnoprado/debug": "dev-master",
+        "mpdf/qrcode": "dev-development",
+        "nunomaduro/phpinsights": "dev-master"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rmagnoprado\\Pixqrcode\\": "app/"
+        }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "Rmagnoprado\\Pixqrcode\\Tests\\": "tests/"
+      }
+    },
+    "scripts": {
+        "phpunit": "vendor/bin/phpunit tests",
+        "phpstan": "vendor/bin/phpstan analyse app tests",
+        "phpinsights": "./vendor/bin/phpinsights --format=json > log/phpinsights.json -v --fix"
+        
+    },
+    "authors": [
+        {
+            "name": "Robson Magno",
+            "email": "rmagnoprado@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
