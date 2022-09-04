@@ -7,10 +7,25 @@ require __DIR__.'/vendor/autoload.php';
 use Mpdf\QrCode\Output;
 use Mpdf\QrCode\QrCode;
 use Rmagnoprado\Pixqrcode\Payload;
+use Rmagnoprado\Debug\Main;
+
+$debug = new Main();
 ?>
 
-<h1>RObson</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Qr Code</title>
+    <?php echo $debug->getHeader(); ?>
+</head>
+<body>
+<h1>Teste Debug Client</h1>
+<?php echo $debug->getBody(); ?>
+
 <?php
+
+
 $px[00] = '01';
 $px[26][00] = 'BR.GOV.BCB.PIX';
 //Indica arranjo específico; “00” (GUI) obrigatório e valor fixo: br.gov.bcb.pix
@@ -44,6 +59,7 @@ $px[62][50][01]="1.0.0"; //Payment system specific template - versão
 
 $obPayload = new Payload();
 $pix = $obPayload->montaPix($px);
+
 /*
 # A função montaPix prepara todos os campos existentes antes do CRC (campo 63).
 # O CRC deve ser calculado em cima de todo o conteúdo, inclusive do próprio 63.
@@ -56,7 +72,14 @@ echo $pix;
 echo '<hr/><center><h1>Imagem de QRCode do Pix</h1></center><hr/>';
 $obQrCode = new QrCode($pix);
 $image = (new Output\Png())->output($obQrCode, 400);
+
+
+$json = (string)json_encode($px);
+
 ?>
 <center>
     <img src="data:image/png;base64,<?php echo base64_encode($image);?>"></img>
 </center>
+<script>
+<?php $debug->getScript($json); ?>
+</script></body></html>

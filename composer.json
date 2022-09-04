@@ -3,7 +3,7 @@
     "description": "Qr Code para transferência PIX",
     "type": "library",
     "require": {
-        "rmagnoprado/debug": ">=1.0.0",
+        "rmagnoprado/debug": ">=1.0.1",
         "mpdf/qrcode": ">=1.2.0"
     },
     "require-dev": {
